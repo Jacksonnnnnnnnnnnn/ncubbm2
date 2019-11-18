@@ -25,11 +25,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="name" />
+                    android:text="date" />
 
                 <EditText
                     android:id="@+id/et1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="139dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Date" />
@@ -52,15 +52,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="m1" />
+                    android:text="pid" />
 
                 <EditText
                     android:id="@+id/et2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="號碼" />
+                    android:hint="病歷號"
+                    android:inputType="textPersonName" />
             </TableRow>
 
             <TableRow
@@ -72,15 +72,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="m3" />
+                    android:text="bedNo" />
 
                 <EditText
                     android:id="@+id/et3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="號碼" />
+                    android:hint="床號"
+                    android:inputType="textPersonName" />
             </TableRow>
 
             <TableRow
@@ -92,15 +92,100 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="m4" />
+                    android:text="s1" />
 
                 <EditText
                     android:id="@+id/et4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="貼身體"
+                    android:inputType="textPersonName" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="s2" />
+
+                <EditText
+                    android:id="@+id/et5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="號碼" />
+                    android:hint="貼身體" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="s3" />
+
+                <EditText
+                    android:id="@+id/et6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="貼頭" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="s4" />
+
+                <EditText
+                    android:id="@+id/et7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="貼頭" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="remark" />
+
+                <EditText
+                    android:id="@+id/et8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="備註/排除理由，無則不填" />
             </TableRow>
         </TableLayout>
 

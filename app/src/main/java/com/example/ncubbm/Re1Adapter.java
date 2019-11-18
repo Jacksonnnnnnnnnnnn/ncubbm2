@@ -1,6 +1,7 @@
 package com.example.ncubbm;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,11 +43,14 @@ class Re1Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implement
 
         MyHolder hold=(MyHolder) viewHolder;
         Re1_list data = items.get(i);
-            hold.t_id.setText(data.getT_id());
-            hold.t_name.setText(data.getT_name());
-            hold.t_m1.setText(data.getT_m1());
-            hold.t_m2.setText(data.getT_m2());
-            hold.t_m3.setText(data.getT_m3());
+            hold.t_date.setText(data.getT_date());
+            hold.t_pid.setText(data.getT_pid());
+            hold.t_bedNo.setText(data.getT_bedNo());
+            hold.t_s1.setText(data.getT_s1());
+            hold.t_s2.setText(data.getT_s2());
+            hold.t_s3.setText(data.getT_s3());
+            hold.t_s4.setText(data.getT_s4());
+            hold.t_remark.setText(data.getT_remark());
             hold.itemView.setTag(i);
 
     }
@@ -69,19 +73,26 @@ class Re1Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implement
     }
 
     private class MyHolder extends RecyclerView.ViewHolder {
-        private TextView t_id;
-        private TextView t_name;
-        private TextView t_m1;
-        private TextView t_m2;
-        private TextView t_m3;
+        private TextView t_date;
+        private TextView t_pid;
+        private TextView t_bedNo;
+        private TextView t_s1;
+        private TextView t_s2;
+        private TextView t_s3;
+        private TextView t_s4;
+        private TextView t_remark;
 
         public MyHolder(View itemView) {
             super(itemView);
-            t_id=itemView.findViewById(R.id.t1);
-            t_name=itemView.findViewById(R.id.t2);
-            t_m1=itemView.findViewById(R.id.t3);
-            t_m2=itemView.findViewById(R.id.t4);
-            t_m3=itemView.findViewById(R.id.t5);
+            Log.d("checkInsert","Re1Adapter");
+            t_date=itemView.findViewById(R.id.t2);
+            t_pid=itemView.findViewById(R.id.t3);
+            t_bedNo=itemView.findViewById(R.id.t4);
+            t_s1=itemView.findViewById(R.id.t5);
+            t_s2=itemView.findViewById(R.id.t6);
+            t_s3=itemView.findViewById(R.id.t7);
+            t_s4=itemView.findViewById(R.id.t8);
+            t_remark=itemView.findViewById(R.id.t9);
 
         }
     }

@@ -28,7 +28,7 @@ public class DBphp {
             hC=new DefaultHttpClient();
             hP=new HttpPost(url + "/index.php");
             hP.addHeader("Cookie", Wcook+";expires=Thu,31-Dec-37 23:55:55 GMT; path=/");
-            //hP.addHeader("Cookie", "__test:38193f5bd1b5910345875a1c48ffa711;expires=Fri,01-Jan-38 07:55:55 GMT; path=/");
+            //hP.addHeader("Cookie", "__test:2a82dd447404a842c71147240b1b4ae7;expires=Fri,01-Jan-38 07:55:55 GMT; path=/");
 
             //NameValuePair為一個接口
             //searching若null的話就顯示全部result

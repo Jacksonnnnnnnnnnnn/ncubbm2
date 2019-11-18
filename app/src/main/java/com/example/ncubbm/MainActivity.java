@@ -15,25 +15,20 @@ import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 public class MainActivity extends AppCompatActivity {
 
     Context context=this;
-    EditText et1,et2,et3,et4;
+    EditText et1,et2,et3,et4,et5,et6,et7,et8;
     WebView webview;
     String url="http://ncubbm.byethost12.com";
     CookieManager cookieManager;
@@ -45,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads()
@@ -74,14 +68,23 @@ public class MainActivity extends AppCompatActivity {
         et2=(EditText)findViewById(R.id.et2);
         et3=(EditText)findViewById(R.id.et3);
         et4=(EditText)findViewById(R.id.et4);
+        et5=(EditText)findViewById(R.id.et5);
+        et6=(EditText)findViewById(R.id.et6);
+        et7=(EditText)findViewById(R.id.et7);
+        et8=(EditText)findViewById(R.id.et8);
 
         //新增資料
         Button b1=(Button)findViewById(R.id.button12);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] et0=new String[]{et1.getText().toString(),et2.getText().toString(),et3.getText().toString(),et4.getText().toString()};
+                Log.d("checkInsert","hiiiiiiiiiiiiiiiiiiii");
+                String[] et0=new String[]{et1.getText().toString(),et2.getText().toString(),
+                                          et3.getText().toString(),et4.getText().toString(),
+                                          et5.getText().toString(),et6.getText().toString(),
+                                          et7.getText().toString(),et8.getText().toString()};
                 Inphp.Interting(et0,cookieStr,url);
+                Log.d("checkInsert","inphp");
                 select(null);
             }
         });
@@ -106,12 +109,16 @@ public class MainActivity extends AppCompatActivity {
         });
          */
 
-        //update
+        //update , 不確定id_text是否還有用
         Button b2=(Button)findViewById(R.id.button13);
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] et0=new String[]{id_text,et1.getText().toString(),et2.getText().toString(),et3.getText().toString(),et4.getText().toString()};
+                //String[] et0=new String[]{id_text,et1.getText().toString(),et2.getText().toString(),
+                String[] et0=new String[]{id_text,et1.getText().toString(),et2.getText().toString(),
+                                                  et3.getText().toString(),et4.getText().toString(),
+                                                  et5.getText().toString(),et6.getText().toString(),
+                                                  et7.getText().toString(),et8.getText().toString()};
                 Upphp.updating(et0,cookieStr,url);
                 select(null);
             }
@@ -122,18 +129,19 @@ public class MainActivity extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("checkDelete","in");
                 String[] et0=new String[]{id_text};
                 Delphp.deleting(et0,cookieStr,url);
                 select(null);
             }
         });
 
-        //search name column
+        //search pid column
         Button b4=(Button)findViewById(R.id.button15);
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                select(et1.getText().toString());
+                select(et2.getText().toString());
             }
         });
 
@@ -179,7 +187,10 @@ public class MainActivity extends AppCompatActivity {
 
             for(int i =0;i<jsonArray.length();i++){
                 JSONObject jsonData=jsonArray.getJSONObject(i);
-                items.add(new Re1_list(jsonData.getString("id"),jsonData.getString("name"),jsonData.getString("m1"),jsonData.getString("m2"),jsonData.getString("m3")));
+                items.add(new Re1_list(jsonData.getString("date"),jsonData.getString("pid"),
+                                       jsonData.getString("bedNo"),jsonData.getString("s1"),
+                                       jsonData.getString("s2"),jsonData.getString("s3"),
+                                       jsonData.getString("s4"),jsonData.getString("remark")));
 //LV1
 //                Map<String,Object> item=new HashMap<String, Object>();
 //                item.put("id",jsonData.getString("id"));
@@ -199,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
             SA.setOnItemClickListener(new Re1Adapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int i) {
-                    TextView te0=(TextView)view.findViewById(R.id.t1);
+                    TextView te0=(TextView)view.findViewById(R.id.t0);
                     id_text=te0.getText().toString();
                     TextView te1=(TextView)view.findViewById(R.id.t2);
                     et1.setText(te1.getText());
@@ -209,6 +220,14 @@ public class MainActivity extends AppCompatActivity {
                     et3.setText(te3.getText());
                     TextView te4=(TextView)view.findViewById(R.id.t5);
                     et4.setText(te4.getText());
+                    TextView te5=(TextView)view.findViewById(R.id.t6);
+                    et5.setText(te5.getText());
+                    TextView te6=(TextView)view.findViewById(R.id.t7);
+                    et6.setText(te6.getText());
+                    TextView te7=(TextView)view.findViewById(R.id.t8);
+                    et7.setText(te7.getText());
+                    TextView te8=(TextView)view.findViewById(R.id.t9);
+                    et8.setText(te8.getText());
                 }
             });
 
