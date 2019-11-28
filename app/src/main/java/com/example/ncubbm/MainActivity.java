@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Context context=this;
-    EditText et1,et2,et3,et4,et5,et6,et7,et8;
+    EditText et0,et1,et2,et3,et4,et5,et6,et7,et8;
     WebView webview;
     String url="http://ncubbm.byethost12.com";
     CookieManager cookieManager;
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        LV1=(ListView)findViewById(R.id.LV1);
         Re1=(RecyclerView)findViewById(R.id.Re1);
+        et0=(EditText)findViewById(R.id.et2);
         et1=(EditText)findViewById(R.id.et1);
         et2=(EditText)findViewById(R.id.et2);
         et3=(EditText)findViewById(R.id.et3);
@@ -109,20 +110,36 @@ public class MainActivity extends AppCompatActivity {
         });
          */
 
-        //update , 不確定id_text是否還有用
+        //update
         Button b2=(Button)findViewById(R.id.button13);
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String[] et0=new String[]{id_text,et1.getText().toString(),et2.getText().toString(),
-                String[] et0=new String[]{id_text,et1.getText().toString(),et2.getText().toString(),
-                                                  et3.getText().toString(),et4.getText().toString(),
-                                                  et5.getText().toString(),et6.getText().toString(),
-                                                  et7.getText().toString(),et8.getText().toString()};
+                Log.d("checkUpdate1","UpPHP");
+                String[] et0=new String[]{et1.getText().toString(),id_text,
+                        et3.getText().toString(),et4.getText().toString(),
+                        et5.getText().toString(),et6.getText().toString(),
+                        et7.getText().toString(),et8.getText().toString()};
                 Upphp.updating(et0,cookieStr,url);
                 select(null);
             }
         });
+        //update(old version)
+//        Button b2=(Button)findViewById(R.id.button13);
+//        b2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("checkUpdate1","UpPHP");
+//                String[] et0=new String[]{id_text,et1.getText().toString(),et2.getText().toString(),
+//                                                  et3.getText().toString(),et4.getText().toString(),
+//                                                  et5.getText().toString(),et6.getText().toString(),
+//                                                  et7.getText().toString(),et8.getText().toString()};
+//                Upphp.updating(et0,cookieStr,url);
+//                select(null);
+//            }
+//        });
+
+
 
         //delete
         Button b3=(Button)findViewById(R.id.button14);
@@ -204,13 +221,13 @@ public class MainActivity extends AppCompatActivity {
 //            LV1.setAdapter(SA);
                 //自定Adapter
             Re1Adapter SA= new Re1Adapter(context,items);
-            Re1.setLayoutManager(new GridLayoutManager(this,3));
+            Re1.setLayoutManager(new GridLayoutManager(this,2));
             Re1.setAdapter(SA);
 
             SA.setOnItemClickListener(new Re1Adapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int i) {
-                    TextView te0=(TextView)view.findViewById(R.id.t0);
+                    TextView te0=(TextView)view.findViewById(R.id.t3);
                     id_text=te0.getText().toString();
                     TextView te1=(TextView)view.findViewById(R.id.t2);
                     et1.setText(te1.getText());

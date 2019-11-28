@@ -24,7 +24,6 @@ public class Delphp {
             hP=new HttpPost(url+"/delete.php");
             System.out.println("是否取得cookie="+Wcook);
             hP.addHeader("Cookie",Wcook+";expires=Thu,31-Dec-37 23:55:55 GMT; path=/");
-            Log.d("checkDelete","delphp2");
 
             ArrayList<NameValuePair> params=new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("S1",i[0]));
