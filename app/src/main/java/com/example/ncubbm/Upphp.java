@@ -34,6 +34,7 @@ public class Upphp {
             params.add(new BasicNameValuePair("S6",i[5]));
             params.add(new BasicNameValuePair("S7",i[6]));
             params.add(new BasicNameValuePair("S8",i[7]));
+            params.add(new BasicNameValuePair("S9",i[8]));
 //            params.add(new BasicNameValuePair("S1",i[0])) to params.add(new BasicNameValuePair("S8",i[7]));
             hP.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             HttpResponse hR=hC.execute(hP);

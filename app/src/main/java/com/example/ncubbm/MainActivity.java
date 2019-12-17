@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.webkit.CookieManager;
@@ -22,12 +23,15 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
 
     Context context=this;
+    TextView textView;
     EditText et0,et1,et2,et3,et4,et5,et6,et7,et8;
     WebView webview;
     String url="http://ncubbm.byethost12.com";
@@ -40,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        textView = findViewById(R.id.et1);
+        textView.setInputType(InputType.TYPE_NULL);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String datetime = simpleDateFormat.format(calendar.getTime());
+        textView.setText(datetime);
 
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads()
@@ -64,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        LV1=(ListView)findViewById(R.id.LV1);
         Re1=(RecyclerView)findViewById(R.id.Re1);
-        et0=(EditText)findViewById(R.id.et2);
+//        et0=(EditText)findViewById(R.id.et2);
         et1=(EditText)findViewById(R.id.et1);
         et2=(EditText)findViewById(R.id.et2);
         et3=(EditText)findViewById(R.id.et3);
@@ -116,15 +127,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("checkUpdate1","UpPHP");
-                String[] et0=new String[]{et1.getText().toString(),id_text,
+                String[] et0=new String[]{et1.getText().toString(),et2.getText().toString(),
                         et3.getText().toString(),et4.getText().toString(),
                         et5.getText().toString(),et6.getText().toString(),
-                        et7.getText().toString(),et8.getText().toString()};
+                        et7.getText().toString(),et8.getText().toString(),id_text};
                 Upphp.updating(et0,cookieStr,url);
                 select(null);
             }
         });
+
         //update(old version)
+//        Button b2=(Button)findViewById(R.id.button13);
+//        b2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("checkUpdate1","UpPHP");
+//                String[] et0=new String[]{id_text,
+//                        et1.getText().toString(),et2.getText().toString(),
+//                        et3.getText().toString(),et4.getText().toString(),
+//                        et5.getText().toString(),et6.getText().toString(),
+//                        et7.getText().toString(),et8.getText().toString()};
+//                Upphp.updating(et0,cookieStr,url);
+//                select(null);
+//            }
+//        });
+
+        //update(old old version)
 //        Button b2=(Button)findViewById(R.id.button13);
 //        b2.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -196,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
     //顯示資料
     public void select(String id){
         try {
+            textView.setInputType(InputType.TYPE_CLASS_DATETIME);
             String r = DBphp.DBstring(id, cookieStr, url);
 
             JSONArray jsonArray = new JSONArray(r);

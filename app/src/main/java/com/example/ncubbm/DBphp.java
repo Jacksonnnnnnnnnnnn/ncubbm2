@@ -35,7 +35,7 @@ public class DBphp {
             if(i!=null && !i.toString().equals("")) {
             ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
 
-                params.add(new BasicNameValuePair("S1", i));
+                params.add(new BasicNameValuePair("S2", i));
                 //urlEncodedFormEntity為指定編碼參數，構造一個新的來發送HTTP POST請求(如UTF8)
                 hP.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
             }

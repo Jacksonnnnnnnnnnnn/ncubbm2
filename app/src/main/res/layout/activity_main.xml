@@ -32,6 +32,7 @@
                     android:layout_width="139dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:inputType="none"
                     android:hint="Date" />
 
                 <Button
@@ -60,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="病歷號"
-                    android:inputType="textPersonName" />
+                    android:inputType="number"/>
             </TableRow>
 
             <TableRow
@@ -79,8 +80,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:inputType="number"
                     android:hint="床號"
-                    android:inputType="textPersonName" />
+                     />
             </TableRow>
 
             <TableRow
